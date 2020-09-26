@@ -25,7 +25,7 @@ AC_CHECK_HEADERS([fcntl.h stddef.h string.h unistd.h dlfcn.h dirent.h])
 AC_CHECK_FUNCS([memset memmove])
 AC_CHECK_FUNCS([sqrt])
 
-AC_CHECK_LIB([pthread], [pthread_yield],,AC_MSG_ERROR([pthread library not found.]))
+# AC_CHECK_LIB([pthread], [pthread_yield],,AC_MSG_ERROR([pthread library not found.]))
 AC_CHECK_LIB([dl], [dlclose])
 
 PKG_CHECK_MODULES([fuse], [fuse >= 2.8])

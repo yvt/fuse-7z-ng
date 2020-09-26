@@ -16,6 +16,7 @@
  */
 #pragma once
 
+#define FUSE_USE_VERSION 28
 #include <fuse.h>
 
 void *fuse7z_initlib(char const * archive, char const * cwd);
@@ -36,7 +37,7 @@ int fuse7z_rmdir(const char *path);
 int fuse7z_mkdir(const char *path, mode_t mode);
 int fuse7z_rename(const char *path, const char *new_path);
 int fuse7z_utimens(const char *path, const struct timespec tv[2]);
-#if ( __FreeBSD__ >= 10 )
+#if ( __FreeBSD__ >= 10 ) || defined(__APPLE__)
 int fuse7z_setxattr(const char *, const char *, const char *, size_t, int, uint32_t);
 int fuse7z_getxattr(const char *, const char *, char *, size_t, uint32_t);
 #else

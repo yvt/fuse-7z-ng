@@ -274,7 +274,7 @@ fuse7z_utimens (const char *path, const struct timespec tv[2])
 }
 
 int
-#if ( __FreeBSD__ >= 10 )
+#if ( __FreeBSD__ >= 10 ) || defined(__APPLE__)
 fuse7z_setxattr (
         const char *, const char *, const char *, size_t, int, uint32_t)
 #else
@@ -286,7 +286,7 @@ fuse7z_setxattr (
 }
 
 int
-#if ( __FreeBSD__ >= 10 )
+#if ( __FreeBSD__ >= 10 ) || defined(__APPLE__)
 fuse7z_getxattr (
         const char *, const char *, char *, size_t, uint32_t)
 #else

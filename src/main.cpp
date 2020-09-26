@@ -21,7 +21,9 @@
 #include <cstdio>
 #include <cstring>
 #include <unistd.h>
+#ifndef __APPLE__
 #include <linux/limits.h>
+#endif
 
 #include "logger.h"
 #include "fuse_functions.h"

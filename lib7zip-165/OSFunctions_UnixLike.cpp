@@ -30,11 +30,7 @@ using namespace NWindows;
 
 #include "OSFunctions_UnixLike.h"
 
-#ifdef __APPLE__
-int myselect(struct dirent * pDir );
-#else
 int myselect(const struct dirent * pDir );
-#endif //__APPLE__
 
 static C7ZipObjectPtrArray * g_pHandlers = NULL;
 static C7ZipLibrary * g_pLibrary = NULL;
@@ -67,11 +63,7 @@ bool LoadDllFromFolder(C7ZipDllHandler * pMainHandler, const wstring & wfolder_n
   return true;
 }
 
-#ifdef __APPLE__
-int myselect(struct dirent * pDir )
-#else
 int myselect(const struct dirent * pDir )
-#endif //__APPLE__
 {
   if ( NULL == pDir )
     return 0;
@@ -177,8 +169,8 @@ HMODULE Load7ZLibrary(const wstring & name)
   lib_search_pathlist.push_back("/usr/local/lib/p7zip");
   lib_search_pathlist.push_back(".");
 
-  for(std::vector<const char *>::iterator lib_search_pathlistIt = lib_search_pathlist.begin(); 
-      lib_search_pathlistIt != lib_search_pathlist.end(); 
+  for(std::vector<const char *>::iterator lib_search_pathlistIt = lib_search_pathlist.begin();
+      lib_search_pathlistIt != lib_search_pathlist.end();
       lib_search_pathlistIt++)
   {
     string path_prefix = *lib_search_pathlistIt;

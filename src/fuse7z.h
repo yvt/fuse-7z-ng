@@ -99,14 +99,14 @@ class Fuse7z
 						gain = 10000000ULL;
 						bias = secpy * gain * 369 + secpy * 2438356ULL + 5184000ULL;
 						pArchiveItem->GetFileTimeProperty(lib7zip::kpidATime, time);
-						node->stat.st_atim.tv_sec = (time - bias)/gain;
-						node->stat.st_atim.tv_nsec = ((time - bias) % gain) * 100;
+						node->stat.st_atimespec.tv_sec = (time - bias)/gain;
+						node->stat.st_atimespec.tv_nsec = ((time - bias) % gain) * 100;
 						pArchiveItem->GetFileTimeProperty(lib7zip::kpidCTime, time);
-						node->stat.st_ctim.tv_sec = (time - bias)/gain;
-						node->stat.st_ctim.tv_nsec = ((time - bias) % gain) * 100;
+						node->stat.st_ctimespec.tv_sec = (time - bias)/gain;
+						node->stat.st_ctimespec.tv_nsec = ((time - bias) % gain) * 100;
 						pArchiveItem->GetFileTimeProperty(lib7zip::kpidMTime, time);
-						node->stat.st_mtim.tv_sec = (time - bias)/gain;
-						node->stat.st_mtim.tv_nsec = ((time - bias) % gain) * 100;
+						node->stat.st_mtimespec.tv_sec = (time - bias)/gain;
+						node->stat.st_mtimespec.tv_nsec = ((time - bias) % gain) * 100;
 					}
 				}
 
